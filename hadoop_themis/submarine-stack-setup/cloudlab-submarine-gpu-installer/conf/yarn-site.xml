@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+
+<!-- Site specific YARN configuration properties -->
+
+<configuration>
+
+	<property>
+    	<name>yarn.nodemanager.disk-health-checker.max-disk-utilization-per-disk-percentage</name>
+        <value>98</value>
+	</property>
+
+	<property>
+        <name>yarn.nodemanager.disk-health-checker.enable</name>
+        <value>false</value>
+	</property>
+
+	<property>
+		<name>yarn.timeline-service.enabled</name>
+		<value>true</value>
+	</property>
+
+	<property>
+		<name>yarn.timeline-service.http-cross-origin.enabled</name>
+		<value>true</value>
+	</property>
+
+	<property>
+		<name>yarn.resourcemanager.system-metrics-publisher.enabled</name>
+		<value>true</value>
+	</property>
+
+	<property>
+		<name>yarn.timeline-service.generic-application-history.enabled</name>
+		<value>true</value>
+	</property>
+
+  <property>
+          <name>yarn.webapp.ui2.enable</name>
+          <value>true</value>
+  </property>  
+
+	<property>
+		<name>yarn.timeline-service.hostname</name>
+		<value>MASTER_IP</value>
+	</property>
+
+	<property>
+		<name>yarn.timeline-service.address</name>
+		<value>MASTER_IP:10200</value>
+	</property>
+
+	<property>
+		<name>yarn.timeline-service.webapp.address</name>
+		<value>MASTER_IP:8188</value>
+	</property>
+
+	<property>
+		<name>yarn.timeline-service.webapp.https.address</name>
+		<value>MASTER_IP:8190</value>
+	</property>
+
+	<property>
+		<name>yarn.timeline-service.handler-thread-count</name>
+		<value>10</value>
+	</property>
+
+  	<property>
+    	<name>yarn.nodemanager.aux-services</name>
+	    <value>mapreduce_shuffle</value>
+	  </property>
+
+	<property>
+	    <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+	    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+     </property>
+
+  	<property>
+    	<name>yarn.resourcemanager.resource-tracker.address</name>
+	    <value>MASTER_IP:8031</value>
+	</property>
+
+  	<property>
+    	<name>yarn.resourcemanager.scheduler.address</name>
+	    <value>MASTER_IP:8030</value>
+	</property>
+
+  	<property>
+    	<name>yarn.resourcemanager.address</name>
+	    <value>MASTER_IP:8032</value>
+	  </property>
+
+  	<property>
+    	<name>yarn.resourcemanager.hostname</name>
+	    <value>MASTER_IP</value>
+	</property>
+
+	<property>
+  	    <name>yarn.resourcemanager.webapp.address</name>
+    	<value>MASTER_IP:8088</value>
+    </property>
+
+  	<property>
+    	<name>yarn.resourcemanager.scheduler.class</name>
+     	<!-- <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler</value> -->
+      <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.fair.FairScheduler</value>
+  	</property>
+
+  	<property>
+    	<name>yarn.nodemanager.local-dirs</name>
+	    <value>/mnt/storage/data/local/nm</value>
+  	</property>
+
+  	<property>
+    	<name>yarn.nodemanager.remote-app-log-dir</name>
+	    <value>/app-logs</value>
+  	</property>
+
+	<property>
+	    <name>yarn.nodemanager.remote-app-log-dir-suffix</name>
+	    <value>/nm-rm-dir</value>
+        </property>
+
+  	<property>
+    	    <name>yarn.log-aggregation-enable</name>
+    	    <value>true</value>
+  	</property>
+
+  	<property>
+    	<name>yarn.nodemanager.resource.memory-mb</name>
+	    <value>102400</value>
+    	<description>the amount of memory on the NodeManager in MiB</description>
+	</property>
+
+  	<property>
+    	<name>yarn.nodemanager.resource.cpu-vcores</name>
+	    <value>50</value>
+    	<description>the amount of memory on the NodeManager in MiB</description>
+	</property>
+
+	<property>
+       	<name>yarn.nodemanager.nodemanagers.heartbeat-interval-ms</name>
+        <value>3000</value>
+	</property>
+
+  	<!-- disable physical/virtual memory checks in NM -->
+  	<property>
+    	<name>yarn.nodemanager.pmem-check-enabled</name>
+    	<value>true</value>
+  	</property>
+
+  	<property>
+    	<name>yarn.nodemanager.vmem-check-enabled</name>
+    	<value>false</value>
+  	</property>
+
+  	<property>
+    	<name>yarn.scheduler.minimum-allocation-vcores</name>
+    	<value>1</value>
+  	</property>
+
+  	<property>
+    	<name>yarn.scheduler.minimum-allocation-mb</name>
+    	<value>1024</value>
+  	</property>
+
+  	<property>
+    	<name>yarn.scheduler.maximum-allocation-mb</name>
+    	<value>7000</value>
+  	</property>
+
+  	<property>
+    	<name>yarn.scheduler.should-check-slow-nodes</name>
+    	<value>false</value>
+	</property>
+
+  	<property>
+    	<name>yarn.nodemanager.log-dirs</name>
+    	<value>/users/asinghvi/logs/apps</value>
+  	</property>
+
+  	<property>
+    	<name>yarn.nodemanager.address</name>
+    	<value>0.0.0.0:0</value>
+  	</property>
+
+  	<property>
+    	<name>yarn.nodemanager.delete.debug-delay-sec</name>
+    	<value>36000</value>
+  	</property>
+  
+  	<property>
+      	<name>yarn.resourcemanager.am.max-attempts</name>
+      	<value>10</value>
+  	</property>
+
+  	<property>
+    	<description>
+      	Enable services rest api on ResourceManager.
+    	</description>
+    	<name>yarn.webapp.api-service.enable</name>
+    	<value>true</value>
+  	</property>
+
+        <property>
+        <description>The domain name for Hadoop cluster associated records.</description>
+        <name>hadoop.registry.dns.domain-name</name>
+        <value>ycluster</value>
+        </property>
+
+        <property>
+        <description>The port number for the DNS listener. The default port is 5335.
+        If the standard privileged port 53 is used, make sure start the DNS with jsvc support.</description>
+        <name>hadoop.registry.dns.bind-port</name>
+        <value>53</value>
+        </property>
+
+        <property>
+        <description>The DNS functionality is enabled for the cluster. Default is false.</description>
+        <name>hadoop.registry.dns.enabled</name>
+        <value>true</value>
+        </property>
+
+        <property>
+        <description>Address associated with the network interface to which the DNS listener should bind.</description>
+        <name>hadoop.registry.dns.bind-address</name>
+        <value>MASTER_IP</value>
+        </property>
+
+        <property>
+        <description>A comma separated list of hostname:port pairs defining the zookeeper quorum for the YARN registry</description>
+        <name>hadoop.registry.zk.quorum</name>
+        <value>PRIVATE_IP1:2181,PRIVATE_IP2:2181,PRIVATE_IP3:2181</value>
+        </property>
+
+   <!-- Container Executor Properties --> 
+
+  	<property>
+        <name>yarn.nodemanager.container-executor.class</name>
+        <value>org.apache.hadoop.yarn.server.nodemanager.LinuxContainerExecutor</value>
+  	</property>
+  	
+  	<property>
+        <name>yarn.nodemanager.linux-container-executor.group</name>
+        <value>timeseries-PG0</value>
+  	</property>
+
+   <!-- <property>
+    	<name>yarn.nodemanager.linux-container-executor.nonsecure-mode.limit-users</name>
+    	<value>false</value>
+	</property>
+   -->
+   <!-- Cgroup Properties -->
+        <!--
+        <property>
+        <name>yarn.nodemanager.linux-container-executor.resources-handler.class</name>
+        <value>org.apache.hadoop.yarn.server.nodemanager.util.CgroupsLCEResourcesHandler</value>
+        </property>
+  
+       <property>
+       <name>yarn.nodemanager.linux-container-executor.cgroups.mount</name>
+       <value>false</value>
+       </property> -->
+
+  <!-- Docker Specific Properties -->
+       
+       <property>
+       <name>yarn.nodemanager.runtime.linux.docker.default-container-network</name>
+       <value>calico-network</value>
+       </property>
+       <property>
+       <name>yarn.nodemanager.runtime.linux.allowed-runtimes</name>
+       <value>default,docker</value>
+       </property>
+       <property>
+       <name>yarn.nodemanager.runtime.linux.docker.allowed-container-networks</name>
+       <value>host,none,bridge,calico-network</value>
+       </property>
+       <property>
+       <name>yarn.nodemanager.runtime.linux.docker.privileged-containers.allowed</name>
+       <value>false</value>
+       </property>
+       <property>
+       <name>yarn.nodemanager.runtime.linux.docker.privileged-containers.acl</name>
+       <value></value>
+       </property>
+       <property>
+       <name>yarn.nodemanager.runtime.linux.docker.capabilities</name>
+       <value>CHOWN,DAC_OVERRIDE,FSETID,FOWNER,MKNOD,NET_RAW,SETGID,SETUID,SETFCAP,SETPCAP,NET_BIND_SERVICE,SYS_CHROOT,KILL,AUDIT_WRITE</value>
+       </property>
+
+       <!--GPU specifics-->
+       <property>
+       <name>yarn.nodemanager.resource-plugins</name>
+       <value>yarn.io/gpu</value>
+       </property>
+       <property>
+       <name>yarn.nodemanager.resource-plugins.gpu.docker-plugin</name>
+       <value>nvidia-docker-v2</value>
+       </property>
+       <property>
+       <name>yarn.nodemanager.linux-container-executor.cgroups.mount</name>
+       <value>false</value>
+       </property>
+       <!--<property>
+       <name>yarn.nodemanager.linux-container-executor.cgroups.mount-path</name>
+       <value>/sys/fs/cgroup</value>
+       </property>-->
+
+</configuration>
