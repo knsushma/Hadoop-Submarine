@@ -976,6 +976,57 @@ public class ApplicationCLI extends YarnCLI {
   }
 
   /**
+   * Returns the list the applications matching the given application Types, application
+   * States and application Tags present in the Resource Manager.
+   *
+   * @param appTypes
+   * @param appStates
+   * @param appTags
+   * @throws YarnException
+   * @throws IOException
+   * @return List</ApplicationReport>
+   */
+  public List<ApplicationReport> getApplicationsList(Set<String> appTypes,
+                                EnumSet<YarnApplicationState> appStates, Set<String> appTags)
+          throws YarnException, IOException {
+//    PrintWriter writer = new PrintWriter(
+//            new OutputStreamWriter(sysout, Charset.forName("UTF-8")));
+    if (allAppStates) {
+      for (YarnApplicationState appState : YarnApplicationState.values()) {
+        appStates.add(appState);
+      }
+    } else {
+      if (appStates.isEmpty()) {
+        appStates.add(YarnApplicationState.RUNNING);
+        appStates.add(YarnApplicationState.ACCEPTED);
+        appStates.add(YarnApplicationState.SUBMITTED);
+      }
+    }
+
+    List<ApplicationReport> appsReport = client.getApplications(appTypes,
+            appStates, appTags);
+
+//    writer.println("Total number of applications (application-types: "
+//            + appTypes + ", states: " + appStates + " and tags: " + appTags + ")"
+//            + ":" + appsReport.size());
+//    writer.printf(APPLICATIONS_PATTERN, "Application-Id", "Application-Name",
+//            "Application-Type", "User", "Queue", "State", "Final-State",
+//            "Progress", "Tracking-URL");
+    for (ApplicationReport appReport : appsReport) {
+      DecimalFormat formatter = new DecimalFormat("###.##%");
+      String progress = formatter.format(appReport.getProgress());
+//      writer.printf(APPLICATIONS_PATTERN, appReport.getApplicationId(),
+//              appReport.getName(), appReport.getApplicationType(), appReport
+//                      .getUser(), appReport.getQueue(), appReport
+//                      .getYarnApplicationState(),
+//              appReport.getFinalApplicationStatus(), progress, appReport
+//                      .getOriginalTrackingUrl());
+    }
+//    writer.flush();
+    return appsReport;
+  }
+
+  /**
    * Kills applications with the application id as appId
    *
    * @param applicationIds Array of applicationIds
