@@ -10,4 +10,3 @@ In this project, you will design and implement a system to enable elastic ML mod
 
 References: [Hadoop {Submarine} Project: Simple and scalable deployment of deep learning training / serving jobs on Hadoop](https://issues.apache.org/jira/browse/YARN-8135)
 
-#### Code is available [here](https://github.com/goel96vibhor/CS744-project)
